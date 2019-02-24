@@ -20,7 +20,6 @@ class ViewController: UIViewController {
         displayLabel.text = "0"
     }
 
-
     @IBAction func numbersPressed(_ sender: UIButton) {
         clearButton.setTitle("c", for: .normal)
         if sender.tag < 10 {
