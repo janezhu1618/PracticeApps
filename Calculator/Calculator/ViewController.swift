@@ -96,18 +96,26 @@ class ViewController: UIViewController {
         }
     }
     
+    fileprivate func allClear() {
+        display = ""
+        calculator.firstNumAsString = ""
+        calculator.secondNumAsString = ""
+        operationToPerform = nil
+        clearButton.setTitle("c", for: .normal)
+    }
+    
     @IBAction func clearButtonPressed(_ sender: UIButton) {
         if clearButton.titleLabel!.text == "c" {
             display = ""
             updateUI()
             clearButton.setTitle("ac", for: .normal)
-        } else {//if "ac" was pressed
-            display = ""
-            calculator.firstNumAsString = ""
-            calculator.secondNumAsString = ""
-            operationToPerform = nil
-            clearButton.setTitle("c", for: .normal)
+        } else {
+            allClear()
         }
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        allClear()
     }
     
 }
